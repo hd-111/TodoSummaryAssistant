@@ -23,7 +23,7 @@ spec:
         - name: backend
 
           # CHANGE THIS to your Docker Hub username
-          image: harshith00000/todo-backend:5
+          image: harshith00000/todo-backend:6
 
           imagePullPolicy: Always
 
