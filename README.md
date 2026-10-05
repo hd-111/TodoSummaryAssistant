@@ -124,3 +124,84 @@ A full-stack application to manage personal to-do items, summarize pending tasks
 ![Screenshot (1144)](https://github.com/user-attachments/assets/474b1a46-36c8-4407-8bf9-a46ca911603b)
 
 ![Screenshot (1143)](https://github.com/user-attachments/assets/1e9f8783-d0df-42ce-a3f8-ec7ca5e7c078)
+
+
+# Todo Summary Assistant
+
+A full-stack Todo Summary Assistant application built with **React, Spring Boot, MySQL, Docker, Jenkins, Kubernetes, and Argo CD GitOps**.
+
+The application allows users to manage Todo items and generate a summary of pending Todo items that can be sent to Slack.
+
+---
+
+## 📌 Project Overview
+
+The Todo Summary Assistant is a containerized full-stack application consisting of:
+
+- React frontend
+- Spring Boot REST backend
+- MySQL database
+- Cohere API for Todo summarization
+- Slack Webhook for sending summaries
+- Docker for containerization
+- Jenkins for Continuous Integration
+- Kubernetes for container orchestration
+- Argo CD for GitOps-based Continuous Delivery
+- AWS EC2 for hosting the Kubernetes cluster
+
+The project follows a **CI + GitOps CD architecture**.
+
+Jenkins is responsible for building, testing, creating Docker images, and pushing images to Docker Hub.
+
+Argo CD is responsible for deploying the Kubernetes manifests stored in GitHub to the Kubernetes cluster.
+
+---
+
+# 🏗️ Architecture
+
+```text
+                         Developer
+                             |
+                             v
+                        GitHub Repository
+                             |
+                             v
+                         Jenkins CI
+                             |
+                +------------+------------+
+                |                         |
+             Maven Test              React Build
+                |                         |
+                +------------+------------+
+                             |
+                             v
+                       Docker Build
+                             |
+                             v
+                        Docker Hub
+                    +--------+--------+
+                    |                 |
+              Backend Image     Frontend Image
+                    |                 |
+                    +--------+--------+
+                             |
+                             v
+                         GitHub
+                       k8s/ manifests
+                             |
+                             v
+                         Argo CD
+                             |
+                             v
+                  Kubernetes Cluster
+                             |
+             +---------------+---------------+
+             |               |               |
+             v               v               v
+        Frontend          Backend          MySQL
+        Nginx             Spring Boot      Database
+             |               |
+             +-------+-------+
+                     |
+                     v
+              Cohere API / Slack
