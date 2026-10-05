@@ -23,7 +23,7 @@ spec:
         - name: frontend
 
           
-          image: harshith00000/todo-frontend:6
+          image: harshith00000/todo-frontend:8
 
           imagePullPolicy: Always
 
