@@ -23,7 +23,7 @@ spec:
         - name: frontend
 
           # Change this later to your Docker Hub username
-          image: YOUR_DOCKERHUB_USERNAME/todo-frontend:5
+          image: harshith00000/todo-frontend:5
 
           imagePullPolicy: Always
 
