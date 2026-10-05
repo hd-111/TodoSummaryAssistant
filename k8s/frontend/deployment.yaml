@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-frontend
+  namespace: todo-app
+  labels:
+    app: todo-frontend
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: todo-frontend
+
+  template:
+    metadata:
+      labels:
+        app: todo-frontend
+
+    spec:
+      containers:
+        - name: frontend
+
+          # Change this later to your Docker Hub username
+          image: YOUR_DOCKERHUB_USERNAME/todo-frontend:5
+
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 80
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 20
+            periodSeconds: 20

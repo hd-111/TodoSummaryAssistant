@@ -1,0 +1,5 @@
+k8s/secret.yaml
+target/
+node_modules/
+.env
+*.log
