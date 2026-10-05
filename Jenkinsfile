@@ -16,7 +16,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Praj122/TodoSummaryAssistant.git'
+                    url: 'https://github.com/hd-111/TodoSummaryAssistant.git'
             }
         }
 
